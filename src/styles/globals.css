@@ -1,7 +1,9 @@
 body {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: start; */
+  max-width: 400px;
+  margin-inline: auto;
   min-height: 100vh;
   /* padding: 100px 30px; */
   font-family: "Inter", sans-serif;
