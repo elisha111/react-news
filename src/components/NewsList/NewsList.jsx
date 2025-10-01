@@ -1,4 +1,4 @@
-import NewsItem from "../NewsItem";
+import NewsItem from "@/components/NewsItem";
 import styles from "./styles.module.css";
 
 const NewsList = (props) => {
@@ -7,7 +7,7 @@ const NewsList = (props) => {
   return (
     <ul className={styles.root}>
       {news.map((item) => (
-        <NewsItem key={item.id} item={item} />
+        <NewsItem key={`${item.url}`} item={item} />
       ))}
     </ul>
   );
