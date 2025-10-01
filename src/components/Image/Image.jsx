@@ -5,7 +5,7 @@ const Image = (props) => {
 
   return (
     <div className={styles.root}>
-      {image ? <img src={image} alt="" className={styles.image} /> : null}
+      {image && <img src={image} alt="" className={styles.image} />}
     </div>
   );
 };
