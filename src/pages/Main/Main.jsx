@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import NewsBanner from "../../components/NewsBanner";
+import NewsBanner from "@/components/NewsBanner";
 import styles from "./styles.module.css";
-import { getNews } from "../../api/apiNews";
-import NewsList from "../../components/NewsList";
-import Skeleton from "../../components/Skeleton";
+import { getNews } from "@/api/apiNews";
+import NewsList from "@/components/NewsList";
+import Skeleton from "@/components/Skeleton";
 
 const Main = () => {
   const [news, setNews] = useState([]);
@@ -15,12 +15,14 @@ const Main = () => {
       try {
         setIsLoading(true);
         const response = await getNews();
-        setNews(response.news);
-        setIsLoading(false);
+        setNews(response.articles);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
+
     fetchNews();
   }, []);
 

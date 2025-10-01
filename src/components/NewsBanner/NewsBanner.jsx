@@ -1,5 +1,5 @@
-import { formatTimeAgo } from "../../helpers/formatTimeAgo";
-import Image from "../Image";
+import { formatTimeAgo } from "@/helpers/formatTimeAgo";
+import Image from "@/components/Image";
 import styles from "./styles.module.css";
 
 const NewsBanner = (props) => {
@@ -7,10 +7,10 @@ const NewsBanner = (props) => {
 
   return (
     <div className={styles.root}>
-      <Image image={item?.image} />
+      <Image image={item?.urlToImage} />
       <h3 className={styles.title}>{item.title}</h3>
       <p className={styles.extra}>
-        {formatTimeAgo(item.publish_date)} by {item.author}
+        {formatTimeAgo(item.publishedAt)} by {item.author}
       </p>
     </div>
   );
