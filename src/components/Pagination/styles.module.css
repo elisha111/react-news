@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow,
+.pageNumber {
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-white);
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.pageNumber {
+  padding: 8px;
+}
