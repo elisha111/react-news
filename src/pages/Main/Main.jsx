@@ -5,9 +5,13 @@ import { getNews } from "@/api/apiNews";
 import NewsList from "@/components/NewsList";
 import Skeleton from "@/components/Skeleton";
 import Pagination from "@/components/Pagination";
+import { getCategories } from "@/api/apiNews";
+import Categories from "@/components/Categories";
 
 const Main = () => {
   const [news, setNews] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,7 +23,11 @@ const Main = () => {
   const fetchNews = async (currentPage) => {
     try {
       setIsLoading(true);
-      const response = await getNews(currentPage, pageSize);
+      const response = await getNews({
+        page: currentPage,
+        pageSize: pageSize,
+        category: selectedCategory === "all" ? null : selectedCategory,
+      });
       setNews(response.articles);
     } catch (error) {
       console.log(error);
@@ -28,9 +36,26 @@ const Main = () => {
     }
   };
 
+  const fetchCategories = async () => {
+    try {
+      const response = await getCategories();
+      setCategories([
+        "all",
+        ...response.sources.map((source) => source.category),
+      ]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const uniqueCategories = [...new Set(categories)];
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   useEffect(() => {
     fetchNews(currentPage);
-  }, [currentPage]);
+  }, [currentPage, selectedCategory]);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -50,6 +75,11 @@ const Main = () => {
 
   return (
     <main className={styles.root}>
+      <Categories
+        categories={uniqueCategories}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
       {news.length > 0 && !isLoading ? (
         <NewsBanner item={news[0]} />
       ) : (
