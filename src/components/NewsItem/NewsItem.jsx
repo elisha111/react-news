@@ -8,13 +8,13 @@ const NewsItem = (props) => {
     <li className={styles.root}>
       <div
         className={styles.image}
-        style={{ backgroundImage: `url(${item.urlToImage})` }}
+        style={{ backgroundImage: `url(${item.image})` }}
       />
 
       <div className={styles.info}>
         <h3 className={styles.title}>{item.title}</h3>
         <p className={styles.extra}>
-          {formatTimeAgo(item.publishedAt)} by {item.author}
+          {formatTimeAgo(item.published)} by {item.author}
         </p>
       </div>
     </li>

@@ -7,7 +7,7 @@ const NewsList = (props) => {
   return (
     <ul className={styles.root}>
       {news.map((item) => (
-        <NewsItem key={`${item.url}`} item={item} />
+        <NewsItem key={`${item.id}`} item={item} />
       ))}
     </ul>
   );
