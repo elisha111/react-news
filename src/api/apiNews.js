@@ -4,15 +4,14 @@ const BASE_URL = import.meta.env.VITE_NEWS_BASE_API_URL;
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 export const getNews = async (props) => {
-  const { page = 1, pageSize = 10, category } = props;
+  const { page_number = 1, page_size = 10, category } = props;
 
   try {
-    const response = await axios.get(`${BASE_URL}top-headlines`, {
+    const response = await axios.get(`${BASE_URL}search`, {
       params: {
         apiKey: API_KEY,
-        language: "en",
-        page,
-        pageSize,
+        page_number,
+        page_size,
         category,
       },
     });
@@ -25,10 +24,9 @@ export const getNews = async (props) => {
 
 export const getCategories = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}top-headlines/sources`, {
+    const response = await axios.get(`${BASE_URL}available/categories`, {
       params: {
         apiKey: API_KEY,
-        language: "en",
       },
     });
 

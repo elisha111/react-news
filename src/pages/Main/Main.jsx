@@ -24,11 +24,11 @@ const Main = () => {
     try {
       setIsLoading(true);
       const response = await getNews({
-        page: currentPage,
-        pageSize: pageSize,
+        page_number: currentPage,
+        page_size: pageSize,
         category: selectedCategory === "all" ? null : selectedCategory,
       });
-      setNews(response.articles);
+      setNews(response.news);
     } catch (error) {
       console.log(error);
     } finally {
@@ -39,15 +39,11 @@ const Main = () => {
   const fetchCategories = async () => {
     try {
       const response = await getCategories();
-      setCategories([
-        "all",
-        ...response.sources.map((source) => source.category),
-      ]);
+      setCategories(["all", ...response.categories]);
     } catch (error) {
       console.log(error);
     }
   };
-  const uniqueCategories = [...new Set(categories)];
 
   useEffect(() => {
     fetchCategories();
@@ -76,7 +72,7 @@ const Main = () => {
   return (
     <main className={styles.root}>
       <Categories
-        categories={uniqueCategories}
+        categories={categories}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
