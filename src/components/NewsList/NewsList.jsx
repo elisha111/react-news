@@ -1,5 +1,6 @@
 import NewsItem from "@/components/NewsItem";
 import styles from "./styles.module.css";
+import withSkeleton from "@/helpers/hocs/withSkeleton";
 
 const NewsList = (props) => {
   const { news = [] } = props;
@@ -13,4 +14,6 @@ const NewsList = (props) => {
   );
 };
 
-export default NewsList;
+const NewsItemWithSkeleton = withSkeleton(NewsList, "item", 10);
+
+export default NewsItemWithSkeleton;
