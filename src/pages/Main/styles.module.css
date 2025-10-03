@@ -1,6 +1,12 @@
 .root {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   width: 100%;
   gap: 32px;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 767px) {
+  .root {
+    grid-template-columns: 1fr;
+  }
 }
