@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  background-color: var(--color-white);
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-light-4);
+  border-radius: 12px;
+}
