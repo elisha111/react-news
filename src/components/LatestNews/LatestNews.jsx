@@ -1,12 +1,17 @@
-import BannersList from "@/components/BannersList";
 import styles from "./styles.module.css";
 
-const LatestNews = (props) => {
-  const { banners, isLoading } = props;
+import { getLatestNews } from "@/api/apiNews";
+
+import { useFetch } from "@/helpers/hooks/useFetch";
+
+import BannersList from "@/components/BannersList";
+
+const LatestNews = () => {
+  const { data, isLoading } = useFetch(getLatestNews);
 
   return (
     <section className={styles.root}>
-      <BannersList banners={banners} isLoading={isLoading} />
+      <BannersList banners={data && data.news} isLoading={isLoading} />
     </section>
   );
 };
