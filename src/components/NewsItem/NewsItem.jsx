@@ -1,5 +1,6 @@
 import { formatTimeAgo } from "@/helpers/formatTimeAgo";
 import styles from "./styles.module.css";
+import withSkeleton from "@/helpers/hocs/withSkeleton";
 
 const NewsItem = (props) => {
   const { item } = props;
@@ -21,4 +22,6 @@ const NewsItem = (props) => {
   );
 };
 
-export default NewsItem;
+const NewsItemWithSkeleton = withSkeleton(NewsItem, "item", 10);
+
+export default NewsItemWithSkeleton;

@@ -4,6 +4,12 @@ const Categories = (props) => {
   const { categories, setSelectedCategory, selectedCategory } = props;
   return (
     <div className={styles.root}>
+      <button
+        className={!selectedCategory ? styles.active : styles.item}
+        onClick={() => setSelectedCategory(null)}
+      >
+        all
+      </button>
       {categories.map((category) => (
         <button
           className={
