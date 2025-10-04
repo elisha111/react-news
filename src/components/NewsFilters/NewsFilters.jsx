@@ -1,7 +1,8 @@
 import styles from "./styles.module.css";
 
 import Categories from "@/components/Categories";
-import Search from "@/components/Search/Search";
+import Search from "@/components/Search";
+import Slider from "@/components/Slider";
 
 import { getCategories } from "@/api/apiNews";
 
@@ -15,11 +16,15 @@ const NewsFilters = (props) => {
   return (
     <div className={styles.root}>
       {dataCategories && (
-        <Categories
-          categories={dataCategories.categories}
-          selectedCategory={filters.category}
-          setSelectedCategory={(category) => changeFilter("category", category)}
-        />
+        <Slider>
+          <Categories
+            categories={dataCategories.categories}
+            selectedCategory={filters.category}
+            setSelectedCategory={(category) =>
+              changeFilter("category", category)
+            }
+          />
+        </Slider>
       )}
 
       <Search
