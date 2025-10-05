@@ -10,3 +10,13 @@
   background-color: var(--color-white);
   cursor: pointer;
 }
+
+.root.dark .arrow {
+  background-color: var(--color-dark);
+  color: var(--color-light-5);
+}
+
+.root.light .arrow {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
