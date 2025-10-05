@@ -1,6 +1,8 @@
 import styles from "./styles.module.css";
 
-const Pagination = (props) => {
+import type { IPaginationProps } from "@/interfaces";
+
+const Pagination = (props: IPaginationProps) => {
   const {
     totalPages,
     handleNextPage,

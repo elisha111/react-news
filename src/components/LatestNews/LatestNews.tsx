@@ -6,8 +6,10 @@ import { useFetch } from "@/helpers/hooks/useFetch";
 
 import BannersList from "@/components/BannersList";
 
+import type { NewsApiResponse } from "@/interfaces";
+
 const LatestNews = () => {
-  const { data, isLoading } = useFetch(getLatestNews);
+  const { data, isLoading } = useFetch<NewsApiResponse, null>(getLatestNews);
 
   return (
     <section className={styles.root}>

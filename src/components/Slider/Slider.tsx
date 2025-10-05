@@ -1,15 +1,23 @@
-import React, { useRef } from "react";
+import React, { useRef, type ForwardedRef } from "react";
 import styles from "./styles.module.css";
 
-const Slider = (props) => {
+type SliderPropsType = {
+  children: React.ReactElement<{ ref?: ForwardedRef<HTMLElement> }>;
+  step?: number;
+};
+
+const Slider = (props: SliderPropsType) => {
   const { children, step = 150 } = props;
 
-  const sliderRef = useRef(null);
+  const sliderRef = useRef<HTMLElement | null>(null);
 
   const scrollLeft = () => {
+    if (!sliderRef.current) return;
+
     sliderRef.current.scrollLeft -= step;
   };
   const scrollRight = () => {
+    if (!sliderRef.current) return;
     sliderRef.current.scrollLeft += step;
   };
 
