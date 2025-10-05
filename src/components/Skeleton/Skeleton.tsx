@@ -1,6 +1,14 @@
 import styles from "./styles.module.css";
 
-const Skeleton = (props) => {
+import type { DirectionType, SkeletonType } from "@/interfaces";
+
+type SkeletonPropsType = {
+  type?: SkeletonType;
+  count?: number;
+  direction?: DirectionType;
+};
+
+const Skeleton = (props: SkeletonPropsType) => {
   const { count = 1, type = "banner", direction = "column" } = props;
 
   return (
