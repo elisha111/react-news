@@ -3,6 +3,13 @@
   gap: 12px;
   width: 100%;
   background-color: var(--color-white);
+
+  &.dark {
+    background-color: var(--color-dark);
+  }
+  &.light {
+    background-color: var(--color-white);
+  }
 }
 .input {
   width: 100%;

@@ -20,9 +20,21 @@
 
   &:disabled {
     cursor: default;
+    opacity: 0.5;
   }
 }
 
 .pageNumber {
   padding: 8px;
+}
+
+.root.dark .pageNumber,
+.root.dark .arrow {
+  background-color: var(--color-dark);
+  color: var(--color-light-5);
+}
+.root.light .pageNumber,
+.root.light .arrow {
+  background-color: var(--color-white);
+  color: var(--color-black);
 }

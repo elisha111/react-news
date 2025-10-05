@@ -26,3 +26,23 @@ button {
   padding: 24px;
   min-height: 100vh;
 }
+
+.app.dark .container {
+  background-color: var(--color-dark);
+}
+
+.app.light .container {
+  background-color: var(--color-white);
+}
+
+.app.dark p,
+.app.dark h3,
+.app.dark h1 {
+  color: var(--color-light-5);
+}
+
+.app.light p,
+.app.light h3,
+.app.light h1 {
+  color: var(--color-black);
+}

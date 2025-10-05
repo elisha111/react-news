@@ -4,10 +4,11 @@ import styles from "./styles.module.css";
 type SliderPropsType = {
   children: React.ReactElement<{ ref?: ForwardedRef<HTMLElement> }>;
   step?: number;
+  isDark: boolean;
 };
 
 const Slider = (props: SliderPropsType) => {
-  const { children, step = 150 } = props;
+  const { children, step = 150, isDark } = props;
 
   const sliderRef = useRef<HTMLElement | null>(null);
 
@@ -22,7 +23,7 @@ const Slider = (props: SliderPropsType) => {
   };
 
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${isDark ? styles.dark : styles.light}`}>
       <button onClick={scrollLeft} className={styles.arrow}>{`<`}</button>
       {React.cloneElement(children, { ref: sliderRef })}
       <button onClick={scrollRight} className={styles.arrow}>{`>`}</button>
