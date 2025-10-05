@@ -1,6 +1,11 @@
 import styles from "./styles.module.css";
 
-const Search = (props) => {
+type SearchPropsType = {
+  keywords: string;
+  setKeywords: (keywords: string) => void;
+};
+
+const Search = (props: SearchPropsType) => {
   const { keywords, setKeywords } = props;
 
   return (

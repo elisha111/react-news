@@ -1,7 +1,14 @@
-import { formatTimeAgo } from "@/helpers/formatTimeAgo";
 import styles from "./styles.module.css";
 
-const NewsItem = (props) => {
+import { formatTimeAgo } from "@/helpers/formatTimeAgo";
+
+import type { INews } from "@/interfaces";
+
+type NewsItemPropsType = {
+  item: INews;
+};
+
+const NewsItem = (props: NewsItemPropsType) => {
   const { item } = props;
 
   return (

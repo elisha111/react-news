@@ -1,6 +1,10 @@
 import styles from "./styles.module.css";
 
-const Image = (props) => {
+type ImagePropsType = {
+  image: string;
+};
+
+const Image = (props: ImagePropsType) => {
   const { image } = props;
 
   return (

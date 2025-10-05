@@ -1,8 +1,13 @@
-import NewsBanner from "@/components/NewsBanner";
 import styles from "./styles.module.css";
+import type { INews } from "@/interfaces";
 import withSkeleton from "@/helpers/hocs/withSkeleton";
+import NewsBanner from "@/components/NewsBanner";
 
-const BannersList = (props) => {
+type BannersListPropsType = {
+  banners?: INews[] | null;
+};
+
+const BannersList = (props: BannersListPropsType) => {
   const { banners } = props;
 
   return (
@@ -14,6 +19,11 @@ const BannersList = (props) => {
   );
 };
 
-const BannersListWithSkeleton = withSkeleton(BannersList, "banner", 10, "row");
+const BannersListWithSkeleton = withSkeleton<BannersListPropsType>(
+  BannersList,
+  "banner",
+  10,
+  "row"
+);
 
 export default BannersListWithSkeleton;
