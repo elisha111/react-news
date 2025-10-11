@@ -4,13 +4,14 @@ import { useDebounce } from "@/shared/hooks/useDebounce";
 
 import { TOTAL_PAGES } from "@/shared/constants/constants";
 
-import NewsFilters from "@/pages/main/ui/NewsFilters";
-
 import { setFilters } from "@/entities/news/model/newsSlice";
 import { useAppDispatch, useAppSelector } from "@/app/appStore";
 import { useGetNewsQuery } from "@/entities/news/api/newsApi";
 import { NewsList } from "@/widgets/news/ui";
 import { Pagination } from "@/features/pagination";
+
+import NewsFilters from "../NewsFilters";
+
 
 const NewsByFilters = () => {
   const filters = useAppSelector((state) => state.news.filters);
