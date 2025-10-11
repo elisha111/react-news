@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 
-import LatestNews from "@/pages/main/ui/LatestNews";
-import NewsByFilters from "@/pages/main/ui/NewsByFilters";
+import LatestNews from "./LatestNews";
+import NewsByFilters from "./NewsByFilters";
 
 const MainPage = () => {
   return (
