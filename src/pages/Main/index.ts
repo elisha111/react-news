@@ -1,3 +1,1 @@
-import Main from "./Main";
-
-export default Main
+export { default as MainPage } from "./ui/MainPage";
