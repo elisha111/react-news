@@ -1,5 +1,5 @@
 import { useTheme } from "@/app/providers/ThemeProvider";
-import { MainPage } from "@/pages/main";
+import { Main } from "@/pages/home";
 import { Header } from "@/widgets/header";
 
 const BaseLayout = () => {
@@ -9,7 +9,7 @@ const BaseLayout = () => {
     <div className={`app ${isDark ? "dark" : "light"}`}>
       <Header />
       <div className="container">
-        <MainPage />
+        <Main />
       </div>
     </div>
   );

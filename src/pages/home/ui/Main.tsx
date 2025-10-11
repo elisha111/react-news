@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import LatestNews from "./LatestNews";
 import NewsByFilters from "./NewsByFilters";
 
-const MainPage = () => {
+const Main = () => {
   return (
     <main className={styles.root}>
       <LatestNews />
@@ -12,4 +12,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Main;
