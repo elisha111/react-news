@@ -1,3 +1,3 @@
 export type { NewsApiResponse, INews } from "./model/types";
-export { default as NewsItem } from "./ui/NewsItem/NewsItem";
-export { default as NewsBanner } from "./ui/NewsBanner/NewsBanner";
+
+export { default as NewsCard } from "./ui/NewsCard/NewsCard";

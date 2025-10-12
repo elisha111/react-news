@@ -9,26 +9,25 @@ import { useTheme } from "@/app/providers/ThemeProvider";
 
 import { setFilters } from "@/entities/news/model/newsSlice";
 import { useAppDispatch } from "@/app/appStore";
-import { useGetCategoriesQuery } from "@/entities/category/api/categoryApi";
+import type { CategoriesType } from "@/entities/category";
 
 type NewsFiltersPropsType = {
   filters: IFilters;
+  categories: CategoriesType[];
 };
 
 const NewsFilters = (props: NewsFiltersPropsType) => {
-  const { filters } = props;
-
-  const { data } = useGetCategoriesQuery(null);
+  const { filters, categories } = props;
 
   const { isDark } = useTheme();
   const dispatch = useAppDispatch();
 
   return (
     <div className={styles.root}>
-      {data && (
+      {categories && (
         <Slider isDark={isDark}>
           <Categories
-            categories={data.categories}
+            categories={categories}
             selectedCategory={filters.category}
             setSelectedCategory={(category) =>
               dispatch(setFilters({ key: "category", value: category }))
